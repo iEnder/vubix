@@ -1,0 +1,113 @@
+@import './_vars';
+
+.sidebar {
+    width: 250px;
+    background-color: #273135;
+    color: #89949B;
+    height: 100vh;
+
+    &__header {
+        height: 75px;
+        background-color: #FA7252;
+        color: #FDE8FF;
+        font-family: $font;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__name {
+        margin: 0 0 5px 0;
+        font-weight: 700;
+        font-size: 1.1em;
+    }
+
+    &__image {
+        height: 40px;
+        border-radius: 100%;
+    }
+
+    &__stats {
+        margin: 0 10px 0 15px;
+        width: 115px;
+    }
+
+    &__level {
+        margin: 0 0 5px 0;
+        height: 4px;
+        background-color: #DE5939;
+        width: 100%;
+        &-progress {
+            height: 100%;
+            width: 40%;
+            background-color: #fff;
+        }
+    }
+
+    &__lock {
+        margin-top: 10px;
+        color: #DE5939;
+        font-size: 1.3em;
+    }
+
+    &__control {
+        background-color: #de5939;
+        height: 35px;
+        box-shadow: 0 7px 9px rgba(0,0,0,0.15);
+        position: relative;
+        z-index: 5;
+        &-item {
+            width: 20%;
+            text-align: center;
+            line-height: 35px;
+            height: 100%;
+            color: #993F31;
+            &:not(:last-child) {
+                border-right: 1px solid #cf4d2e;
+            }
+            &:hover {
+                background-color: #d55637;
+            }
+            &--active {
+                background-color: #BA4E3B;
+                color: #EC6E52;
+                &:hover {
+                    background-color: #BA4E3B;
+                }
+            }
+        }
+        ul {
+            margin: 0;
+            list-style-type: none;
+            display: flex;
+            padding: 0;
+        }
+    }
+
+    &__container {
+        width: 250px;
+        height: calc(100vh - 110px);
+        background-color: #ccc;
+        display: flex;
+        overflow: hidden;
+    }
+
+    &__category {
+        overflow-y: scroll;
+        transition: all 0.5s  cubic-bezier(0.73, 0.07, 0.19, 0.9);
+        position: relative;
+        left: 0;
+        flex-shrink: 0;
+        width: 250px;
+        height: 100%;
+        background-color: #444;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h1 {
+            color: #f0f0f0;
+            font-family: $font;
+            font-size: 10em;
+        }
+    }
+}
