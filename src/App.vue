@@ -1,17 +1,22 @@
 <template>
-  <div id="app">
+  <div class="app">
     <Sidebar username="Ender" />
+    <div class="app__right">
+      <Navbar />
+    </div>
   </div>
 </template>
 
 <script>
 // <router-view></router-view>
 import Sidebar from './components/sidebar/container';
+import Navbar from './components/navbar';
 
 export default {
   name: 'app',
   components: {
     Sidebar,
+    Navbar
   },
 };
 </script>

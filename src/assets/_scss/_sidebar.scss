@@ -1,11 +1,12 @@
 @import './_vars';
 
 .sidebar {
+    transition: all 0.5s ease;
     width: 250px;
     background-color: #273135;
     color: #89949B;
     height: 100vh;
-
+    margin-left: 0;
     &__header {
         height: 75px;
         background-color: #FA7252;

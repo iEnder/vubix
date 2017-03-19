@@ -1,5 +1,5 @@
 <template>
-<aside class='sidebar' >
+<aside id="sidebar" class='sidebar' >
     <div class="sidebar__header">
         
         <img class="sidebar__image" src="../../assets/profile-image.jpg" alt="image">
