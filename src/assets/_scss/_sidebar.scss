@@ -9,7 +9,7 @@
     margin-left: 0;
     &__header {
         height: 75px;
-        background-color: #FA7252;
+        background-color: color(base);
         color: #FDE8FF;
         font-family: $font;
         display: flex;
@@ -36,7 +36,8 @@
     &__level {
         margin: 0 0 5px 0;
         height: 4px;
-        background-color: #DE5939;
+        background-color: color(hover);
+        filter: contrast(75%);
         width: 100%;
         &-progress {
             height: 100%;
@@ -47,12 +48,14 @@
 
     &__lock {
         margin-top: 10px;
-        color: #DE5939;
+        color: color(hover);
+        filter: contrast(75%);
         font-size: 1.3em;
     }
 
     &__control {
-        background-color: #de5939;
+        background-color: color(secondary);
+        filter: contrast(85%) saturate(90%);
         height: 35px;
         box-shadow: 0 7px 9px rgba(0,0,0,0.15);
         position: relative;
@@ -62,19 +65,17 @@
             text-align: center;
             line-height: 35px;
             height: 100%;
-            color: #993F31;
+            color: color(text);
             &:not(:last-child) {
-                border-right: 1px solid #cf4d2e;
+                border-right: 1px solid color(hover);
             }
             &:hover {
-                background-color: #d55637;
+                background-color: color(hover);
+                filter: contrast(95%) saturate(80%) brightness(110%);
             }
             &--active {
-                background-color: #BA4E3B;
-                color: #EC6E52;
-                &:hover {
-                    background-color: #BA4E3B;
-                }
+                background-color: color(active);
+                color: color(active-text);
             }
         }
         ul {
@@ -110,5 +111,11 @@
             font-family: $font;
             font-size: 10em;
         }
+    }
+}
+
+@media (max-width: 990px) {
+    .sidebar {
+        margin-left: -250px;
     }
 }
