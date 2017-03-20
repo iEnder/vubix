@@ -1,5 +1,35 @@
 @import './_vars';
 
-.ContactGroup {
+.contact-group {
     font-family: $font;
+    &__title {
+        font-size: 0.85em;
+        color: rgba(137,148,155,0.4);
+        margin: 20px 0 10px 0;
+        padding-left: 25px;
+    }
+    &__item {
+        display:flex;
+        width: 100%;
+        padding: 7px 0px;
+        padding-left: 25px;
+        &:hover {
+            background-color: #1f272a;
+        }
+    }
+    &__image {
+        border-radius: 100%;
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+    &__name {
+        margin: 0;
+        line-height: 30px;
+        color: #89949B;
+        font-size: 1.1em;
+    }
+    &:last-child {
+        filter: brightness(65%);
+    }
 }

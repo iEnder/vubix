@@ -157,6 +157,9 @@
 
 @media (max-width: 990px) {
     .navbar {
+        &__item-category {
+            border: 0;
+        }
         &__logo {
             margin: 0 20px;
         }

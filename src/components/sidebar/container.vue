@@ -60,7 +60,11 @@ export default {
     data() {
         return {
             currentPanel: 0,
-            online: [{ name: 'Charlie', image: 'placehold.it/20x20'}, { name: 'Sam', image: 'placehold.it/20x20'}]
+            online: [{ name: 'Charlie Doe', image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' }, 
+                     { name: 'Sam Doe',     image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' },
+                     { name: 'Will Doe',    image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' },
+                     { name: 'Finn Doe',    image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' },
+                     { name: 'Mike Doe',    image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' }]
         };
     },
     methods: {
