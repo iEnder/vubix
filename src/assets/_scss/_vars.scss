@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
 
 $font: 'Lato', sans-serif;
 
@@ -6,9 +6,9 @@ $colors: (
   base: #FA7252,
   secondary: darken(#FA7252, 10%),
   hover: darken(#FA7252, 15%),
-  active: darken(#FA7252, 35%),
-  text: darken(#FA7252, 45%),
-  active-text: lighten(#FA7252, 20%)
+  active: darken(#FA7252, 30%),
+  text: darken(#FA7252, 40%),
+  active-text: lighten(#FA7252, 15%)
 );
 
 @function color($color-name) {

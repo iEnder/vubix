@@ -9,8 +9,8 @@
 
 <script>
 // <router-view></router-view>
-import Sidebar from './components/sidebar/container';
-import Navbar from './components/navbar';
+import Sidebar from './components/Sidebar/Container';
+import Navbar from './components/Navbar/Container';
 
 export default {
   name: 'app',

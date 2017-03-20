@@ -10,20 +10,32 @@
 
     <div class="navbar__item-container">
         <div>
-            <div class="navbar__item">
-                <span class="navbar__item--color" v-on:click="changeColors('#68A0A5')"/>
+            <div class="navbar__item-category">
+                <span v-on:click="toggleColorModal()" class="navbar__item navbar__item--color"/>
+                <div class="color-modal" v-bind:class="{ 'color-modal--active': colorModal }" >
+                    <span class="color-modal__title"> <h2>Choose a Theme: </h2> </span>
+
+                    <div class="color-modal__color-row">
+                        <span v-on:click="changeColors('#E76049')" class="color-modal__color"/>
+                        <span v-on:click="changeColors('#2EB398')" class="color-modal__color"/>
+                        <span v-on:click="changeColors('#79B0EC')" class="color-modal__color"/>
+                        <span v-on:click="changeColors('#68A0A5')" class="color-modal__color"/>
+                        <span v-on:click="changeColors('#A8553A')" class="color-modal__color"/>
+                        <span v-on:click="changeColors('#B4A1DD')" class="color-modal__color"/>
+                    </div>
+                </div>
             </div>
-            <div class="navbar__item">
-                <img src="../assets/flags/us.svg" class="navbar__item--flag"></img>
+            <div class="navbar__item-category">
+                <img src="../../assets/flags/us.svg" class="navbar__item navbar__item--flag"></img>
             </div>
-            <div class="navbar__item">
-                <i class="fa fa-user navbar__item--user" aria-hidden="true"></i>
-                <i class="fa fa-cog navbar__item--settings" aria-hidden="true"></i>
+            <div class="navbar__item-category">
+                <i class="fa fa-user navbar__item navbar__item--user" aria-hidden="true"></i>
+                <i class="fa fa-cog navbar__item navbar__item--settings" aria-hidden="true"></i>
             </div>
-            <div class="navbar__item">
-                <i class="fa fa-envelope navbar__item--mail" aria-hidden="true"></i>
-                <i class="fa fa-bullhorn navbar__item--announcement" aria-hidden="true"></i>
-                <i class="fa fa-rss navbar__item--feed" aria-hidden="true"></i>
+            <div class="navbar__item-category">
+                <i class="fa fa-envelope navbar__item navbar__item--mail" aria-hidden="true"></i>
+                <i class="fa fa-bullhorn navbar__item navbar__item--announcement" aria-hidden="true"></i>
+                <i class="fa fa-rss navbar__item navbar__item--feed" aria-hidden="true"></i>
             </div>
         </div>
         <div class="navbar__power">
@@ -38,10 +50,15 @@ export default {
     name: 'navbar',
     data() {
         return {
-            panel: 0
+            panel: 0,
+            colorModal: false
         }
     },
     methods: {
+        toggleColorModal() {
+            this.colorModal = !this.colorModal;
+        },
+
         collapsePanel() {
             console.log(document.getElementById("sidebar").style)
             document.getElementById("sidebar").style.marginLeft = this.panel == 0 ? "0px" : "";
@@ -70,11 +87,12 @@ export default {
             el.style.setProperty('--color-active', editColor(-0.25, color));
             el.style.setProperty('--color-text', editColor(-0.45, color));
             el.style.setProperty('--color-active-text', editColor(0.2, color));
+            this.toggleColorModal();
         }
 
     }
 };
 </script>
 <style lang='scss' scoped>
-    @import '../assets/_scss/_navbar';
+    @import '../../assets/_scss/_navbar';
 </style>

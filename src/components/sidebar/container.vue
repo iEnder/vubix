@@ -33,7 +33,10 @@
             <h1>1</h1>
         </div>
         <div class="sidebar__category" data-category="1">
-            <h1>2</h1>
+            <ContactGroup title="ONLINE" :people="online"/>
+            <ContactGroup title="IDLE" :people="online"/>
+            <ContactGroup title="BUSY" :people="online"/>
+            <ContactGroup title="OFFLINE" :people="online" offline="true" />
         </div>
         <div class="sidebar__category" data-category="2">
             <h1>3</h1>
@@ -50,12 +53,14 @@
 </template>
 
 <script>
+import ContactGroup from './ContactGroup';
 export default {
     name: 'sidebar',
     props: ["username"],
     data() {
         return {
             currentPanel: 0,
+            online: [{ name: 'Charlie', image: 'placehold.it/20x20'}, { name: 'Sam', image: 'placehold.it/20x20'}]
         };
     },
     methods: {
@@ -72,6 +77,9 @@ export default {
             this.currentPanel = index;
         },
     },
+    components: {
+        ContactGroup
+    }
 };
 </script>
 

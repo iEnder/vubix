@@ -22,7 +22,7 @@
         height: 75px;
         margin: 0;
         line-height: 75px;
-        margin-left: 20px;
+        margin: 0 20px;
         h1 {
             margin: 0;
         }
@@ -34,22 +34,23 @@
             display: flex;
         }
     }
-    &__item {
+    &__item-category {
         border-left: 2px solid rgba(59,70,72,0.45);
         height: 100%;
         display: flex;
         align-items: center;
         color: #89949B;
         font-size: 1.5rem;
+    }
+
+    &__item {
+        width: 55px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
         cursor: pointer;
-        & > * {
-            width: 55px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            &:hover {
-                color: white;
-            }
+        &:hover {
+            color: white;
         }
         &--color {
             width: 20px;
@@ -75,6 +76,72 @@
         line-height: 75px;
         background-color: color(base);
         color: white;
+    }
+}
+
+.color-modal {
+    transition: all 0.5s  cubic-bezier(0.73, 0.07, 0.19, 0.9);
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateY(90deg);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 99;
+    text-align: center;
+    cursor: default;
+    &--active {
+        opacity: 1;
+        pointer-events: all;
+        transform: translate(-50%, -50%) rotateY(0deg);
+    }
+    &__title {
+        display: block;
+        font-weight: 100;
+        width: 100%;
+        height: 75px;
+        line-height: 75px;
+        position: relative;
+        background-color: #43525A;
+        color: #f0f0f0;
+        top: -10%;
+        margin-bottom: -25px;
+    }
+
+    &__color-row {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    &__color {
+        width: 75px;
+        height: 75px;
+        margin:  3% 7%;
+        border-radius: 10%;
+        cursor: pointer;
+        &:nth-child(1) {
+            background-color: #E76049;
+        }
+        &:nth-child(2) {
+            background-color: #2EB398;
+        }
+        &:nth-child(3) {
+            background-color: #79B0EC;
+        }
+        &:nth-child(4) {
+            background-color: #68A0A5;
+        }
+        &:nth-child(5) {
+            background-color: #A8553A;
+        }
+        &:nth-child(6) {
+            background-color: #B4A1DD;
+        }
     }
 }
 
