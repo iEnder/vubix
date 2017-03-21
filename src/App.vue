@@ -3,12 +3,12 @@
     <Sidebar username="Ender" />
     <div class="app__right">
       <Navbar />
+      <!-- <router-view></router-view> -->
     </div>
   </div>
 </template>
 
 <script>
-// <router-view></router-view>
 import Sidebar from './components/Sidebar/Container';
 import Navbar from './components/Navbar/Container';
 
