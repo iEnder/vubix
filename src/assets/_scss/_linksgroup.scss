@@ -2,7 +2,7 @@
 
 .links-group {
     font-family: $font;
-    width: 100%;
+    width: 250px;
     &__list {
         list-style-type: none;
         padding: 0;
@@ -10,7 +10,7 @@
     }
     &__header {
         font-size: 1em;
-        margin: 0 20px 10px 20px;
+        margin: 0 15px 10px 15px;
     }
     &__item {
         margin: 0;
@@ -24,7 +24,7 @@
         }
         &--icon {
             font-size: 0.9em;
-            width: 20px;
+            width: 10px;
         }
         &--dropdown {
             transition: 0.2s 0s linear;
@@ -49,11 +49,12 @@
     &__container {
         display: flex;
         align-items: center;
-        padding: 12px 20px;
+        padding: 12px 15px;
         color: #89949B;
         text-decoration: none;
+        width: 100%;
         &--category {
-            width: 100%;
+            width: 85%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -72,12 +73,14 @@
     transition: 1s 0s linear;
     max-height: 0px;
     overflow: hidden;
-    margin-left: 40px;
+    margin-left: 30px;
+    width: 85%;
     .links-group {
         &__header {
             display: none;
         }
         &__container {
+            overflow: hidden;  
             position: relative;
             border-left: 1px solid #666;
             &:before {

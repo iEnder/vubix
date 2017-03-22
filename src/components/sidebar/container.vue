@@ -82,7 +82,8 @@ export default {
                     { name: 'Social', icon: 'fa fa-share-alt', link: '/social' },
                     { name: 'Blog', icon: 'fa fa-id-card', rest: [
                         { name: 'Posts', icon: 'fa fa-columns', link: '/blog/posts' },
-                        { name: 'Single Post', icon: 'fa fa-columns', link: '/blog/post' }]}],
+                        { name: 'Single Post', icon: 'fa fa-columns', link: '/blog/post' }]
+                    }],
 
             components: [{ name: 'Panels', icon: 'fa fa-square-o', link: '/panels' },
                          { name: 'Charts', icon: 'fa fa-bar-chart', rest: [
