@@ -129,6 +129,9 @@
         flex-shrink: 0;
         margin-bottom: 1em;
     }
+    &__end {
+        margin: 3em 0;
+    }
 }
 
 @media (max-width: 990px) {

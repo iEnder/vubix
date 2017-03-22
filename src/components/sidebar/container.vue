@@ -31,10 +31,14 @@
         <div class="sidebar__category sidebar-navigation" data-category="0">
             <input placeholder="Search..." type="text" class="sidebar-navigation__search">
             <span class="sidebar-navigation__divider" />
-            <LinksGroup header="Pages" :links="pages" />
+            <LinksGroup header="PAGES" :links="pages" />
             <span class="sidebar-navigation__divider" />
-             <LinksGroup header="Components" :links="components" />
+            <LinksGroup header="COMPONENTS" :links="components" />
             <span class="sidebar-navigation__divider" />
+            <LinksGroup header="EXTRAS" :links="extras" />
+            <span class="sidebar-navigation__divider" />
+            <LinksGroup header="DOCUMENTATION" :links="doc" />
+            <span class="sidebar-navigation__end"></span>
         </div>
         <div class="sidebar__category" data-category="1">
             <ContactGroup title="ONLINE" :people="online"/>
@@ -59,52 +63,22 @@
 <script>
 import ContactGroup from './ContactGroup';
 import LinksGroup from './LinksGroup';
+const sidebarNav = require('./sidebar-nav');
 export default {
     name: 'sidebar',
     props: ["username"],
     data() {
         return {
             currentPanel: 0,
-
             online: [{ name: 'Charlie Doe', image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' }, 
                      { name: 'Sam Doe',     image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' },
                      { name: 'Will Doe',    image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' },
                      { name: 'Finn Doe',    image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' },
                      { name: 'Mike Doe',    image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' }],
-
-            pages: [{ name: 'Dashboard', icon: 'fa fa-tachometer', link: '/dashboard' },
-                    { name: 'Mailbox', icon: 'fa fa-envelope-o', rest: [
-                        { name: 'Inbox', icon: 'fa fa-inbox', link: '/mailbox/inbox' },
-                        { name: 'Mail', icon: 'fa fa-envelope', link: '/mailbox/mail' },
-                        { name: 'Compose', icon: 'fa fa-comment', link: '/mailbox/compose'}
-                    ]},
-                    { name: 'Gallery', icon: 'fa fa-picture-o', link: '/gallery' },
-                    { name: 'Social', icon: 'fa fa-share-alt', link: '/social' },
-                    { name: 'Blog', icon: 'fa fa-id-card', rest: [
-                        { name: 'Posts', icon: 'fa fa-columns', link: '/blog/posts' },
-                        { name: 'Single Post', icon: 'fa fa-columns', link: '/blog/post' }]
-                    }],
-
-            components: [{ name: 'Panels', icon: 'fa fa-square-o', link: '/panels' },
-                         { name: 'Charts', icon: 'fa fa-bar-chart', rest: [
-                                { name: 'Vubix Charts', icon: 'fa fa-area-chart', rest:[
-                                {name: 'Line Series', link: '/charts/vubix/line'},
-                                {name: 'Area Series', link: '/charts/vubix/area'},
-                                {name: 'Bar + Column Series', link: '/charts/vubix/bar'},
-                                {name: 'Mixed Series', link: '/charts/vubix/mixed'},
-                                {name: 'Pie + Donut Series', link: '/charts/vubix/pie'},
-                             ]},
-                             { name: 'Chart.JS', icon: 'fa fa-line-chart', link: '/charts/chartjs' },
-                             { name: 'C3.JS', icon: 'fa fa-line-chart', link: '/charts/c3js' },
-                             { name: 'Morris.JS', icon: 'fa fa-pie-chart', link: '/charts/morrisjs' },
-                         ]},
-                         { name: 'Static Timeline', icon: 'fa fa-clock-o', link: '/timeline' },
-                         { name: 'Interactive Timeline', icon: 'fa fa-backward', link: '/interactive-timeline' },
-                         { name: 'Codemirror', icon: 'fa fa-code', link: '/codemirror' },
-                         { name: 'Maps', icon: 'fa fa-map-marker', link: '/maps' },
-                         { name: 'Editor', icon: 'fa fa-pencil-square-o', link: '/editor' },
-                         { name: 'Editor', icon: 'fa fa-pencil-square-o', link: '/editor' }],
-
+            pages: sidebarNav.pages,
+            components: sidebarNav.components,
+            extras: sidebarNav.extras,
+            doc: sidebarNav.documentation
         };
     },
     methods: {
