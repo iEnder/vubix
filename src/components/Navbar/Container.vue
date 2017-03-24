@@ -64,6 +64,7 @@ export default {
             document.getElementById("sidebar").style.marginLeft = this.panel == 0 ? "0px" : "";
             document.querySelector(".navbar__power").style.right = this.panel == 1 ? "" : "-80px";
             document.querySelector(".navbar__power").style.marginRight = this.panel == 1 ? "" : "-80px";
+            document.querySelector(".navbar__toggle").style.marginLeft = this.panel == 1 ? "" : "250px";
             this.panel = this.panel == 1 ? 0 : 1;
         },
 

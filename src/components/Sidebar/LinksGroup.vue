@@ -51,5 +51,5 @@ export default {
 </script>
  
 <style lang='scss' scoped>
-    @import '../../assets/_scss/_linksgroup';
+    @import '../../assets/_scss/_sidebar';
 </style>

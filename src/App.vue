@@ -3,7 +3,7 @@
     <Sidebar username="Ender" />
     <div class="app__right">
       <Navbar />
-      <!-- <router-view></router-view> -->
+      <router-view id="app-view"></router-view>
     </div>
   </div>
 </template>

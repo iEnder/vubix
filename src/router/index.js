@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import App from '@/App';
+import Gallery from '../components/Pages/Gallery/Container'
 Vue.use(Router);
 
 export default new Router({
@@ -11,9 +12,9 @@ export default new Router({
       component: App,
     },
     {
-      path: '/user',
-      name: 'App',
-      component: App,
+      path: '/gallery',
+      name: 'Gallery',
+      component: Gallery,
     },
   ],
 });
