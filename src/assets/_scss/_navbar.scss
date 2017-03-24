@@ -7,7 +7,7 @@
     color: #f0f0f0;
     height: 75px;
     background-color: #333;
-    width: 100%;
+    width: calc(100vw - 250px);
     display: flex;
     justify-content: space-between;
     &__toggle {
@@ -160,6 +160,7 @@
 
 @media (max-width: 990px) {
     .navbar {
+        width: 100%;
         &__item-category {
             border: 0;
         }
