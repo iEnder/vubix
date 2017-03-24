@@ -47,6 +47,9 @@
             text-shadow: 0 0 25px rgba(0,0,0,0.9);
         }
     }
+    &__link {
+        text-decoration: none;
+    }
     &__container {
         display: flex;
         align-items: center;
@@ -54,6 +57,11 @@
         color: #89949B;
         text-decoration: none;
         width: 100%;
+        font-size: 1em;
+        &.router-link-active {
+            border-left: 7px solid red;
+            background-color: #1F272A;
+        }
         &--category {
             width: 85%;
             display: flex;
@@ -84,6 +92,10 @@
             overflow: hidden;  
             position: relative;
             border-left: 1px solid #666;
+            &.router-link-active {
+                border-left: 5px solid red;
+                background-color: #1F272A;
+            }
             &:before {
                 content:' ';
                 display: block;

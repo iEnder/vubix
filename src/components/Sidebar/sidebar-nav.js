@@ -42,9 +42,9 @@ module.exports = {
                      { name: 'Messenger', icon: 'fa fa-comments', link: '/ui-elements/messenger' },
                  ]},
                  { name: 'Forms', icon: 'fa fa-file', rest: [
-                     { name: 'Controls', icon: 'fa fa-fire', link: '/forms/controls' },
+                     { name: 'Controls', icon: 'fa fa-sliders', link: '/forms/controls' },
                      { name: 'X-Editable', icon: 'fa fa-pencil-square-o', link: '/forms/editable' },
-                     { name: 'Wizard', icon: 'fa fa-wand', link: '/forms/wizard' },
+                     { name: 'Wizard', icon: 'fa fa-magic', link: '/forms/wizard' },
                  ]},
                  { name: 'Tables', icon: 'fa fa-table', rest:[
                      { name: 'Bootstrap Tables', icon: 'fa fa-table', link: '/tables/bootstrap' },

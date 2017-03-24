@@ -25,7 +25,7 @@
             </div>
 
 
-           <router-link class='links-group__container' :to="item.link" v-else >
+           <router-link class='links-group__container' :to="item.link" v-else >                    
                 <i v-if="item.icon" :class="item.icon" class="links-group__item--icon"></i>
                 <p class="links-group__item--name">{{ item.name }}</p>
            </router-link>
@@ -42,11 +42,10 @@ export default {
     props: ["links", "header"],
     methods: {
         toggleSub(id) {
-            console.log(id)
             let current = !document.getElementById('sub-' + id).style.maxHeight == '';
             document.getElementById('drop-' + id).style.transform = current ? '' : 'rotate(0deg)';
             document.getElementById('sub-' + id).style.maxHeight = current ? '' : '999px';
-        } 
+        },
     }
 };
 </script>
