@@ -1,18 +1,33 @@
 <template>
 <div class='gallery-card' >
-    <div class='gallery-card__image-wrapper'>
-        <img class='gallery-card__image' :src="image" :alt="desc" />
+    <div>
+    
+        <div class='gallery-card__image-wrapper'>
+            <img class='gallery-card__image' :class="{ long: image.width > image.height }":src="image" :alt="desc" />
+        </div>
+        <h5 class='gallery-card__title'>{{ title }}</h5>
+        <p class='gallery-card__date'>{{ date }}</p>
+        <button class='gallery-card__score' @click="toggleLoved" :class="{ loved: isLoved }" ><i class="fa fa-heart"></i> <span>{{ score }}</span></button>
+    
     </div>
-    <h5 class='gallery-card__title'>{{ title }}</h5>
-    <p class='gallery-card__date'>{{ date }}</p>
-    <button class='gallery-card__score'><i class="fa fa-heart"></i> <span>{{ score }}</span></button>
 </div>
 </template>
  
 <script>
 export default {
     name: 'GalleryCard',
-    props: ["image", "desc", "title", "date", "score"]
+    props: ["image", "desc", "title", "date", "score"],
+    data() {
+        return {
+            isLoved: false
+        }
+    },
+    methods: {
+        toggleLoved() {
+            this.score = this.isLoved ? Number(this.score) - 1 : Number(this.score) + 1;
+            this.isLoved = !this.isLoved;
+        }
+    }
 };
 </script>
  
