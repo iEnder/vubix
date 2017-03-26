@@ -13,5 +13,5 @@ name: 'Carousel'
 </script>
  
 <style lang='scss' scoped>
-@import '../assets/_scss/_carousel';
+@import '../assets/_scss/_gallery';
 </style>
