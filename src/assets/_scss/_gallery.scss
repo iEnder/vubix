@@ -23,6 +23,7 @@
     margin: 2% 0;
     background-color: #fff;
     padding: 15px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.1);
     border-radius: 2%;
     &__image-wrapper {
         width: 100%;
@@ -30,18 +31,31 @@
         justify-content: center;
         align-items: center;
         overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        &:hover {
+            & > div {
+                opacity: 1;
+                font-size: 3em;
+            }
+        }
     }
     &__image {
         width:100%;
         display: block;
-        &.long  {
-            width:auto;
+        &--hover {
+            transition: 0.5s ease;
+            position: absolute;
+            width: 100%;
+            font-size: 0em;
             height: 100%;
+            background-color: rgba(50,50,50,0.6);
+            opacity: 0;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        // position: absolute;
-        // top: 50%;
-        // left: 50%;
-        // transform: translate(-50%, -50%);
     }
     &__title {
         font-weight: 500;
@@ -77,9 +91,72 @@
 }
 
 /* 
-    Gallery Card
+    Carousel
 */
-
 .carousel {
-    position: absolute;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 9999;
+    top:0;
+    &__wrapper {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+    }
+    &__image-container {
+        display: flex;
+        width: 100%;
+        position: relative;
+    }
+    &__image-wrapper {
+        transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        width: 100%;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: 0%;
+    }
+    &__image {
+        width: 70%;
+        display: inline-block;
+    }
+    &__exit-button {
+        position: fixed;
+        top: 50px;
+        right: 20px;
+        color: #ff7777;
+        font-size: 2em;
+    }
+    &__control {
+        position: absolute;
+        margin: 3%;
+        color: #111;
+        font-size: 2.5em;
+        color: color(base);
+        z-index: 9999;
+        &:nth-child(1) {
+            left: 0;
+
+        }
+        &:nth-child(3) {
+            right: 0;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .gallery-card {
+        width: 40%;
+    }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Sidebar username="Ender" />
+    <Sidebar username="Seth Church" />
     <div class="app__right">
       <Navbar />
       <router-view id="app-view"></router-view>

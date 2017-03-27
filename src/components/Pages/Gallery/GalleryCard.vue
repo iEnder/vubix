@@ -4,6 +4,9 @@
     
         <div class='gallery-card__image-wrapper'>
             <img class='gallery-card__image' :class="{ long: image.width > image.height }":src="image" :alt="desc" />
+            <div class='gallery-card__image--hover'>
+                <i class="fa fa-search"></i>
+            </div>
         </div>
         <h5 class='gallery-card__title'>{{ title }}</h5>
         <p class='gallery-card__date'>{{ date }}</p>

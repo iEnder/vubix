@@ -12,18 +12,6 @@
         <div>
             <div class="navbar__item-category">
                 <span v-on:click="toggleColorModal()" class="navbar__item navbar__item--color"/>
-                <div class="color-modal" v-bind:class="{ 'color-modal--active': colorModal }" >
-                    <span class="color-modal__title"> <h2>Choose a Theme: </h2> </span>
-
-                    <div class="color-modal__color-row">
-                        <span v-on:click="changeColors('#E76049')" class="color-modal__color"/>
-                        <span v-on:click="changeColors('#2EB398')" class="color-modal__color"/>
-                        <span v-on:click="changeColors('#79B0EC')" class="color-modal__color"/>
-                        <span v-on:click="changeColors('#68A0A5')" class="color-modal__color"/>
-                        <span v-on:click="changeColors('#A8553A')" class="color-modal__color"/>
-                        <span v-on:click="changeColors('#B4A1DD')" class="color-modal__color"/>
-                    </div>
-                </div>
             </div>
             <div class="navbar__item-category">
                 <img src="../../assets/flags/us.svg" class="navbar__item navbar__item--flag"></img>
@@ -40,6 +28,19 @@
         </div>
         <div class="navbar__power">
             <i class="fa fa-power-off" aria-hidden="true"></i>
+        </div>
+    </div>
+
+    <div class="color-modal" v-bind:class="{ 'color-modal--active': colorModal }" >
+        <span class="color-modal__title"> <h2>Choose a Theme: </h2> </span>
+
+        <div class="color-modal__color-row">
+            <span v-on:click="changeColors('#E76049')" class="color-modal__color"/>
+            <span v-on:click="changeColors('#2EB398')" class="color-modal__color"/>
+            <span v-on:click="changeColors('#79B0EC')" class="color-modal__color"/>
+            <span v-on:click="changeColors('#68A0A5')" class="color-modal__color"/>
+            <span v-on:click="changeColors('#A8553A')" class="color-modal__color"/>
+            <span v-on:click="changeColors('#B4A1DD')" class="color-modal__color"/>
         </div>
     </div>
 </nav>
