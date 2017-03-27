@@ -99,9 +99,6 @@
         background-color: #ccc;
         display: flex;
         overflow: hidden;
-        &--hidden {
-            display: none;
-        }
     }
 
     &__category {
@@ -115,6 +112,10 @@
         height: 100%;
         background-color: #273135;
     }
+}
+
+.hidden-item {
+    display: none !important;
 }
 
 .sidebar-navigation {

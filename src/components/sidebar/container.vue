@@ -109,11 +109,25 @@ export default {
             this.currentPanel = index;
         },
         filterSidebar(e) {
-            document.querySelectorAll('.links-group__container--hidden')
+            document.querySelectorAll('.hidden-item')
+                .forEach(el => el.classList.remove('hidden-item'));
             const items = this.navItems;
-            items.forEach(el => {
-                console.log();
-            })
+
+            items.forEach(item => {
+                let itemText = (item.text || item.innerHTML).trim().toLowerCase();
+                let itemId = itemText.replace('&', '').replace(' ', '-');
+                if (itemText.indexOf(e.target.value) == -1 && e.target.value != "") {
+                    if(document.querySelector(`#item-${itemId}`)) {
+                         document.querySelector(`#item-${itemId}`).classList.add('hidden-item');
+                         let currentItem = document.querySelector(`#item-${itemId}`);
+                        //  while(Array.from(currentItem.parentNode.parentNode.classList).indexOf('subgroup')) {
+                        //      currentItem.parentNode.parentNode.parentNode.parentNode.classList.remove('hidden-item');
+                        //      currentItem = currentItem.parentNode.parentNode.parentNode.parentNode
+                        //  }
+                    }
+                }
+            });
+
         }
     },
     components: {

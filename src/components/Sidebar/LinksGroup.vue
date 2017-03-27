@@ -2,11 +2,11 @@
 <div class='links-group' >
     <h1 class='links-group__header'>{{ header }}</h1>
     <ul class='links-group__list'>
-        <li v-for="item in links" class='links-group__item'>
+        <li v-for="item in links" class='links-group__item' :id="'item-' + item.name.replace('&', '').replace(' ', '-').toLowerCase()">
 
 
             <div v-if="item.rest">
-                <div class='links-group__container' @click="toggleSub(item.name.replace(' ', '-').toLowerCase())">
+                <div class='links-group__container' @click="toggleSub(item.name.replace('&', '').replace(' ', '-').toLowerCase())">
                     <div  class='links-group__container--category'>
                     
                         <span>
@@ -16,12 +16,12 @@
                         
                         <span>
                             <span class="links-group__item--subcount" >{{ item.rest.length }}</span>
-                            <span :id="'drop-'+item.name.replace(' ', '-').toLowerCase()" class="links-group__item--dropdown"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+                            <span :id="'drop-'+item.name.replace('&', '').replace(' ', '-').toLowerCase()" class="links-group__item--dropdown"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                         </span>
                         
                     </div>
                 </div>
-                <LinksGroup :id="'sub-'+item.name.replace(' ', '-').toLowerCase()" class="subgroup" :links="item.rest" />
+                <LinksGroup :id="'sub-'+item.name.replace('&', '').replace(' ', '-').toLowerCase()" class="subgroup" :links="item.rest" />
             </div>
 
 
