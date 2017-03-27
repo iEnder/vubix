@@ -60,7 +60,6 @@ export default {
         },
 
         collapsePanel() {
-            console.log(document.getElementById("sidebar").style)
             document.getElementById("sidebar").style.marginLeft = this.panel == 0 ? "0px" : "";
             document.querySelector(".navbar__power").style.right = this.panel == 1 ? "" : "-80px";
             document.querySelector(".navbar__power").style.marginRight = this.panel == 1 ? "" : "-80px";

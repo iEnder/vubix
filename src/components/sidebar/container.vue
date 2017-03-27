@@ -65,75 +65,84 @@ import ContactGroup from './ContactGroup';
 import LinksGroup from './LinksGroup';
 const sidebarNav = require('./sidebar-nav');
 export default {
-    name: 'sidebar',
-    props: ["username"],
-    data() {
-        return {
-            currentPanel: 0,
-            online: [{ name: 'Charlie Doe', image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' }, 
-                     { name: 'Sam Doe',     image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' },
-                     { name: 'Will Doe',    image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' },
-                     { name: 'Finn Doe',    image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' },
-                     { name: 'Mike Doe',    image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' }],
-            pages: sidebarNav.pages,
-            components: sidebarNav.components,
-            extras: sidebarNav.extras,
-            doc: sidebarNav.documentation
-        };
-    },
-    computed: {
-        navItems() {
-            return Array.from(document
-                    .querySelectorAll('.links-group__container'))
-                    .map(el => {
-                        if(el) {
-                            if (!el.text) {
-                                return el.querySelector('.links-group__item--name');
-                            }
-                        }
-                        return el;
-                    });
+  name: 'sidebar',
+  props: ["username"],
+  data() {
+    return {
+      currentPanel: 0,
+      online: [{ name: 'Charlie Doe', image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' }, 
+               { name: 'Sam Doe',     image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' },
+               { name: 'Will Doe',    image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' },
+               { name: 'Finn Doe',    image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' },
+               { name: 'Mike Doe',    image: 'https://placeholdit.imgix.net/~text?txtsize=6&bg=505050&txt=50%C3%9750&w=50&h=50' }],
+      pages: sidebarNav.pages,
+      components: sidebarNav.components,
+      extras: sidebarNav.extras,
+      doc: sidebarNav.documentation
+    };
+  },
+  computed: {
+    navItems() {
+      return Array.from(document
+                        .querySelectorAll('.links-group__container'))
+        .map(el => {
+        if(el) {
+          if (!el.text) {
+            return el.querySelector('.links-group__item--name');
+          }
         }
+        return el;
+      });
+    }
+  },
+  methods: {
+    changePanel(index, id) {
+      if (index === this.currentPanel) return;
+
+      Array.from(document.getElementsByClassName("sidebar__category")).forEach((el) => {
+        el.style.left =  el.style.left = (-250 * index) + "px";
+      });
+
+      document.querySelector(".sidebar__control-item--active").classList.remove("sidebar__control-item--active");
+      document.querySelector("#" + id).classList.add("sidebar__control-item--active");
+
+      this.currentPanel = index;
     },
-    methods: {
-        changePanel(index, id) {
-            if (index === this.currentPanel) return;
+    filterSidebar(e) {
+      document.querySelectorAll('.hidden-item')
+        .forEach(el => el.classList.remove('hidden-item'));
+      const items = this.navItems;
 
-            Array.from(document.getElementsByClassName("sidebar__category")).forEach((el) => {
-                el.style.left =  el.style.left = (-250 * index) + "px";
-            });
-
-            document.querySelector(".sidebar__control-item--active").classList.remove("sidebar__control-item--active");
-            document.querySelector("#" + id).classList.add("sidebar__control-item--active");
-
-            this.currentPanel = index;
-        },
-        filterSidebar(e) {
-            document.querySelectorAll('.hidden-item')
-                .forEach(el => el.classList.remove('hidden-item'));
-            const items = this.navItems;
-
-            items.forEach(item => {
-                let itemText = (item.text || item.innerHTML).trim().toLowerCase();
-                let itemId = itemText.replace('&', '').replace(' ', '-');
-                if (itemText.indexOf(e.target.value) == -1 && e.target.value != "") {
-                    if(document.querySelector(`#item-${itemId}`)) {
-                         document.querySelector(`#item-${itemId}`).classList.add('hidden-item');
-                         let currentItem = document.querySelector(`#item-${itemId}`);
-                        //  while(Array.from(currentItem.parentNode.parentNode.classList).indexOf('subgroup')) {
-                        //      currentItem.parentNode.parentNode.parentNode.parentNode.classList.remove('hidden-item');
-                        //      currentItem = currentItem.parentNode.parentNode.parentNode.parentNode
-                        //  }
+      items.forEach(item => {
+        let itemText = (item.text || item.innerHTML).trim().toLowerCase();
+        let itemId = itemText.replaceAll('[^a-zA-Z\d\s:]', '').replaceAll(' ', '-');
+        if (itemText.indexOf(e.target.value) == -1 && e.target.value != "") {
+          if(document.querySelector(`#item-${itemId}`)) {
+            document.querySelector(`#item-${itemId}`).classList.add('hidden-item');
+            
+          }
+            try {
+                let currentItem = document.querySelector(`#item-${itemId}`);
+                if(currentItem.parentNode.classList[0] != links-group__list) {
+                    if(Array.from(currentItem.parentNode.parentNode.classList).indexOf('subgroup')){
+                        while(Array.from(currentItem.parentNode.parentNode.classList).indexOf('subgroup')) {
+                            currentItem.parentNode.parentNode.parentNode.parentNode.classList.remove('hidden-item');
+                            currentItem = currentItem.parentNode.parentNode.parentNode.parentNode
+                        }
                     }
                 }
-            });
-
+            } catch (e) {
+                console.log(item);
+            }
         }
-    },
-    components: {
-        ContactGroup,
-        LinksGroup
+      });
+
     }
+  },
+  components: {
+    ContactGroup,
+    LinksGroup
+  }
 };
 </script>
 
