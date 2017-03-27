@@ -99,6 +99,9 @@
         background-color: #ccc;
         display: flex;
         overflow: hidden;
+        &--hidden {
+            display: none;
+        }
     }
 
     &__category {

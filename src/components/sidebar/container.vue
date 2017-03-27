@@ -29,7 +29,7 @@
     <div class="sidebar__container">
     
         <div class="sidebar__category sidebar-navigation" data-category="0">
-            <input placeholder="Search..." type="text" class="sidebar-navigation__search">
+            <input @keyup="filterSidebar" placeholder="Search..." type="text" class="sidebar-navigation__search">
             <span class="sidebar-navigation__divider" />
             <LinksGroup header="PAGES" :links="pages" />
             <span class="sidebar-navigation__divider" />
@@ -81,6 +81,20 @@ export default {
             doc: sidebarNav.documentation
         };
     },
+    computed: {
+        navItems() {
+            return Array.from(document
+                    .querySelectorAll('.links-group__container'))
+                    .map(el => {
+                        if(el) {
+                            if (!el.text) {
+                                return el.querySelector('.links-group__item--name');
+                            }
+                        }
+                        return el;
+                    });
+        }
+    },
     methods: {
         changePanel(index, id) {
             if (index === this.currentPanel) return;
@@ -94,6 +108,13 @@ export default {
 
             this.currentPanel = index;
         },
+        filterSidebar(e) {
+            document.querySelectorAll('.links-group__container--hidden')
+            const items = this.navItems;
+            items.forEach(el => {
+                console.log();
+            })
+        }
     },
     components: {
         ContactGroup,

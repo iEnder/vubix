@@ -1,6 +1,6 @@
 <template>
     <div class='gallery' >
-        <GalleryCard v-for="image in images" :image="image.src" :desc="image.desc" :title="image.title" :date="image.date" :score="image.score" />
+        <GalleryCard v-for="image in images" :image="image.src" :desc="image.desc" :title="image.title" :date="image.date" :score="image.score" :key="image.id" />
     </div>
 </template>
  
